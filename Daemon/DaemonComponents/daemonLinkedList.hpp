@@ -7,8 +7,8 @@
 // Copyright:   (c) [2023] Lukas Jackson
 // Licence:     GNU Public License (GPL)
 /////////////////////////////////////////////////////////////////////////////
-#ifndef DAEMONLINKEDLIST_H_
-#define DAEMONLINKEDLIST_H_
+#ifndef DAEMONLINKEDLIST_HPP_
+#define DAEMONLINKEDLIST_HPP_
 
 //System includes
 #include<stdio.h>
