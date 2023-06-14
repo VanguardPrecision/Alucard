@@ -7,8 +7,8 @@
 // Copyright:   (c) [2023] Lukas Jackson
 // Licence:     GNU Public License (GPL)
 /////////////////////////////////////////////////////////////////////////////
-#ifndef DAEMONTHREAD_H_
-#define DAEMONTHREAD_H_
+#ifndef DAEMONTHREAD_HPP_
+#define DAEMONTHREAD_HPP_
 
 //error code dependencies.
 #include"DaemonErrorcodes/DaemonErrorCode.hpp"
