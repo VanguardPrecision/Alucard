@@ -7,8 +7,8 @@
 // Copyright:   (c) [2023] Lukas Jackson
 // Licence:     GNU Public License (GPL)
 /////////////////////////////////////////////////////////////////////////////
-#ifndef DAEMON_H_
-#define DAEMON_H_
+#ifndef DAEMON_HPP_
+#define DAEMON_HPP_
 
 // Daemon includes
 #include "DaemonComponents/daemonThread.hpp"
