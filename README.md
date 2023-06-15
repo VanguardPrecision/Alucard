@@ -1,5 +1,6 @@
 # Alucard Daemon
-![AlucardInterface](https://github.com/VanguardPrecision/Alucard/assets/111693121/a16e4297-d9ba-4912-beff-d57f7575efb9)
+
+![AlucardInterface](https://github.com/VanguardPrecision/Alucard/assets/111693121/fa430bbb-2e2e-4c0d-857c-c53248d1d4b9)
 
 
 This repo is supported by most operating systems out there and building it very simple.
