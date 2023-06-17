@@ -14,9 +14,6 @@ set(SOURCES
     Alucard.cpp
 )
 
-find_package(Boost 1.82 REQUIRED COMPONENTS chrono system thread)
-message("Found Boost version: ${Boost_VERSION}")
-
 add_executable(Alucard ${SOURCES})
 
 # Link against the required libraries

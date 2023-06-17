@@ -28,10 +28,9 @@
     #define DAEMON_SYSTEM_STATUS_OFFLINE "\e[1;31mDAEMON OFFLINE\n\n\e[0m"
 #endif
 
-// Windows macro.
-#if defined(_WIN32) || (_WIN64)
-#define _WIN32_WINNT 0x0601
-#define DAEMON_VERSION_ "ALUCARD Version 1.0 (c)Lukas Jackson, VanguardPrecision 2023\n\n"
+#if defined  (_WIN32) || (_WIN64)
+    //#define _WIN32_WINNT 0x0601
+    #define DAEMON_VERSION_ "ALUCARD Version 1.0 (c)Lukas Jackson, VanguardPrecision 2023\n\n"
 #endif
 
 #endif // BANNER_HPP_

@@ -4,10 +4,7 @@
 int main(void)
 {
     std::atexit(Daemon::exitCallback);
-    boost::asio::io_context io_Context;
-    Daemon runDaemon(io_Context);
 
-    
-
+    Daemon Alucard;
     return 0;
 }

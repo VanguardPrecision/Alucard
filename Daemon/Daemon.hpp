@@ -16,7 +16,6 @@
 #include "DaemonComponents/Banner.hpp"
 
 // Main includes
-#include <boost/asio.hpp>
 
 // System includes
 #include <iostream>
@@ -25,9 +24,9 @@
 class Daemon : public DaemonThread
 {
 public:
-    Daemon(boost::asio::io_context &io_Context) : ioContext(io_Context)
+    Daemon()
     {
-        run(io_Context);
+        run();
     }
     ~Daemon() {}
 
@@ -35,7 +34,7 @@ public:
     {
         std::cout << "Daemon shutting down...\n\n";
         DaemonThread DT;
-        DT.waitThread(5000); //This should be replaced with real system checks on exit.
+        DT.waitThread(5000); //This requires to be replaced with real system checks on exit.
         #if defined (__linux__)
             std::cout << DAEMON_SYSTEM_STATUS_OFFLINE;
         #endif
@@ -44,15 +43,15 @@ public:
         #endif
     }
 private:
-    bool initializeDaemon(boost::asio::io_context &io_Context)
+    bool initializeDaemon()
     {
         std::cout << DAEMON_VERSION_ << std::endl;
         std::cout << "Initializing Daemon...\n\n";
 
         while (messagePrinted == false)
         {
-            io_Context.run();
-            io_Context.restart();
+            //io_Context.run();     //* Since we are not utilizing Boost in this branch, there will be no usage of the io context.
+            //io_Context.restart();
 
             if (!messagePrinted)
             {
@@ -73,13 +72,12 @@ private:
         return true;
     }
 
-    void run(boost::asio::io_context &io_Context)
+    void run()
     {
-        initializeDaemon(io_Context);
+        initializeDaemon();
     }
 
 private:
-    boost::asio::io_context &ioContext;
     bool messagePrinted = false;
 };
 #endif // DAEMON_H_

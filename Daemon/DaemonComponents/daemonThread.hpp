@@ -14,9 +14,9 @@
 #include"DaemonErrorcodes/DaemonErrorCode.hpp"
 
 // Project dependencies
-#include <boost/thread.hpp>
-#include <boost/chrono.hpp>
-#include <boost/functional.hpp>
+#include <thread>
+#include <chrono>
+#include <utility>
 
 //System includes
 #include<stdio.h>
@@ -31,7 +31,7 @@ public:
 
     void waitThread(int seconds)
     {
-        boost::this_thread::sleep_for(boost::chrono::milliseconds(seconds));
+        std::this_thread::sleep_for(std::chrono::milliseconds(seconds));
     }
 
     template <typename Func, typename... Args>
@@ -45,7 +45,7 @@ public:
     template <typename Func, typename... Args>
     void initializeThread(Func &&func, Args &&...args)
     {
-        boost::thread t(boost::forward<Func>(func), boost::forward<Args>(args)...);
+        std::thread t(std::forward<Func>(func), std::forward<Args>(args)...);
         if(t.joinable())
         {
             printf("%s", "\nThread is joinable... [JOINING]\n\n");
