@@ -59,5 +59,5 @@ I have defined a banner for both Linux and Windows type operating system. The fi
 This file contains a general definition for the error codes will be defined throughout the lifespan of the repo. I may overhaul it if I get any ideas but for now it will remain this way.
 
 # Usage
-To get started with general usage, all you need to do is create the boost io_context and initialize the daemon by calling it's constructor with the io_context. Then that is it.
+To get started with general usage, all you need to do is run the file. I created the Daemon class object that will run automatically, so all the hassle is out of the way.
 
