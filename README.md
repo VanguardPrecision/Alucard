@@ -2,6 +2,8 @@
 
 ![AlucardInterface](https://github.com/VanguardPrecision/Alucard/assets/111693121/fa430bbb-2e2e-4c0d-857c-c53248d1d4b9)
 
+# This branch uses only the C/C++ standard libraries, so building with boost won't be required.
+
 
 This repo is supported by most operating systems out there and building it very simple.
 
