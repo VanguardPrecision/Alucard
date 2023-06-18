@@ -39,7 +39,7 @@ public:
             std::cout << DAEMON_SYSTEM_STATUS_OFFLINE;
         #endif
         #if defined (_WIN32)||(_WIN64)
-            std::cout<<"DAEMON OFFLINE";
+            std::cout<<"DAEMON OFFLINE\n\n";
         #endif
     }
 private:
@@ -59,7 +59,7 @@ private:
                     std::cout << DAEMON_SYSTEM_STATUS_ONLINE;
                 #endif
                 #if defined (_WIN32)||(_WIN64)
-                    std::cout<<"[DAEMON ONLINE]";
+                    std::cout<<"[DAEMON ONLINE]\n\n";
                 #endif
                 messagePrinted = true;
             }
