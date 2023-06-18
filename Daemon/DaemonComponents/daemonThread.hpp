@@ -14,13 +14,13 @@
 #include"DaemonErrorcodes/DaemonErrorCode.hpp"
 
 // Project dependencies
+
+//System includes
+#include <stdio.h>
 #include <thread>
 #include <chrono>
 #include <utility>
 
-//System includes
-#include<stdio.h>
-#include<thread>
 
 class DaemonThread
 {
