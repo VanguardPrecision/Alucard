@@ -7,6 +7,13 @@
 // Copyright:   (c) [2023] Lukas Jackson
 // Licence:     GNU Public License (GPL)
 /////////////////////////////////////////////////////////////////////////////
+/*
+Linked list which will contain the daemon history.
+
+In the future a feature will be added to log the history to a file(.txt)
+
+*/
+
 #ifndef DAEMONLINKEDLIST_HPP_
 #define DAEMONLINKEDLIST_HPP_
 

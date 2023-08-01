@@ -14,10 +14,24 @@ set(SOURCES
     Alucard.cpp
 )
 
-find_package(Boost 1.82 REQUIRED COMPONENTS chrono system thread)
-message("Found Boost version: ${Boost_VERSION}")
-
 add_executable(Alucard ${SOURCES})
 
+find_package(libzip REQUIRED HINTS "/home/diablo/Downloads/libzip-1.10.0/build")
+
+if (NOT libzip_FOUND)
+    message(FATAL_ERROR "libzip package not found")
+endif()
+
+target_include_directories(Alucard
+    PRIVATE
+    ${libzip_INCLUDE_DIRS}
+)
+message("LibZip VERSION: ${libzip_VERSION}")
+
 # Link against the required libraries
-target_link_libraries(Alucard ${Boost_LIBRARIES})
+target_link_libraries(Alucard 
+    PRIVATE
+
+    ${Libzip_LIBRARIES}
+    /home/diablo/Downloads/libzip-1.10.0/build/lib/libzip.so
+)

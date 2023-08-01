@@ -7,6 +7,7 @@
 // Copyright:   (c) [2023] Lukas Jackson
 // Licence:     GNU Public License (GPL)
 /////////////////////////////////////////////////////////////////////////////
+
 #ifndef DAEMON_HPP_
 #define DAEMON_HPP_
 
@@ -16,7 +17,6 @@
 #include "DaemonComponents/Banner.hpp"
 
 // Main includes
-#include <boost/asio.hpp>
 
 // System includes
 #include <iostream>
@@ -25,9 +25,9 @@
 class Daemon : public DaemonThread
 {
 public:
-    Daemon(boost::asio::io_context &io_Context) : ioContext(io_Context)
+    Daemon()
     {
-        run(io_Context);
+        run();
     }
     ~Daemon() {}
 
@@ -35,32 +35,29 @@ public:
     {
         std::cout << "Daemon shutting down...\n\n";
         DaemonThread DT;
-        DT.waitThread(5000); //This should be replaced with real system checks on exit.
+        DT.waitThread(5000); //This requires to be replaced with real system checks on exit.
         #if defined (__linux__)
             std::cout << DAEMON_SYSTEM_STATUS_OFFLINE;
         #endif
         #if defined (_WIN32)||(_WIN64)
-            std::cout<<"DAEMON OFFLINE";
+            std::cout<<"DAEMON OFFLINE\n\n";
         #endif
     }
 private:
-    bool initializeDaemon(boost::asio::io_context &io_Context)
+    bool initializeDaemon()
     {
         std::cout << DAEMON_VERSION_ << std::endl;
         std::cout << "Initializing Daemon...\n\n";
 
         while (messagePrinted == false)
         {
-            io_Context.run();
-            io_Context.restart();
-
             if (!messagePrinted)
             {
                 #if defined (__linux__)
                     std::cout << DAEMON_SYSTEM_STATUS_ONLINE;
                 #endif
                 #if defined (_WIN32)||(_WIN64)
-                    std::cout<<"[DAEMON ONLINE]";
+                    std::cout<<"[DAEMON ONLINE]\n\n";
                 #endif
                 messagePrinted = true;
             }
@@ -73,13 +70,13 @@ private:
         return true;
     }
 
-    void run(boost::asio::io_context &io_Context)
+    void run()
     {
-        initializeDaemon(io_Context);
+        initializeDaemon();
     }
 
 private:
-    boost::asio::io_context &ioContext;
     bool messagePrinted = false;
 };
+
 #endif // DAEMON_H_
