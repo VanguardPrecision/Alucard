@@ -7,6 +7,7 @@
 // Copyright:   (c) [2023] Lukas Jackson
 // Licence:     GNU Public License (GPL)
 /////////////////////////////////////////////////////////////////////////////
+
 #ifndef DAEMON_HPP_
 #define DAEMON_HPP_
 
@@ -50,9 +51,6 @@ private:
 
         while (messagePrinted == false)
         {
-            //io_Context.run();     //* Since we are not utilizing Boost in this branch, there will be no usage of the io context.
-            //io_Context.restart();
-
             if (!messagePrinted)
             {
                 #if defined (__linux__)
@@ -80,4 +78,5 @@ private:
 private:
     bool messagePrinted = false;
 };
+
 #endif // DAEMON_H_
