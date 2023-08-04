@@ -33,5 +33,4 @@ target_link_libraries(Alucard
     PRIVATE
 
     ${Libzip_LIBRARIES}
-    /home/diablo/Downloads/libzip-1.10.0/build/lib/libzip.so
 )
